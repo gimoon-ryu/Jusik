@@ -1,0 +1,42 @@
+name: Update KRX dashboard
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 0 * * 1-5"
+    - cron: "30 3 * * 1-5"
+    - cron: "0 7 * * 1-5"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update KRX score data
+        run: python -m stocks.krx_dashboard.cli update
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update KRX dashboard data"
+          file_pattern: data/*.csv
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
