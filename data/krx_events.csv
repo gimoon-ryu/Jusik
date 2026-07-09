@@ -3,5 +3,7 @@
 2026-07-10T00:01:58,ok,KRX snapshot downloaded,0
 2026-07-10T00:02:22,fallback,KRX download failed; using manual universe: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>,5
 2026-07-10T00:02:35,fallback,KRX download failed; using manual universe: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>,5
-2026-07-09T15:57:48,fallback,KRX download failed; using manual universe: KRX returned no stock rows,5
-2026-07-09T16:00:36,fallback,KRX download failed; using manual universe: KRX returned no stock rows,5
+2026-07-10T01:05:26,fallback,KRX download failed; using manual universe: KRX returned no stock rows,5
+2026-07-10T01:07:14,fallback,KRX download failed; using manual universe: KRX returned no stock rows for recent dates; 20260629: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>; 20260626: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>; 20260625: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>; 20260624: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>; 20260623: <urlopen error [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다>,5
+2026-07-10T01:07:27,fallback,KRX download failed; using manual universe: KRX returned no stock rows for recent dates; 20260629: no rows; 20260626: no rows; 20260625: no rows; 20260624: no rows; 20260623: no rows,5
+2026-07-10T01:13:04,quote_fallback,KRX download failed; using quote fallback for manual universe: KRX returned no stock rows for recent dates; 20260629: no rows; 20260626: no rows; 20260625: no rows; 20260624: no rows; 20260623: no rows,5
