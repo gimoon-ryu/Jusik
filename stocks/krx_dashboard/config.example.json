@@ -1,0 +1,19 @@
+{
+  "host": "0.0.0.0",
+  "port": 8765,
+  "update_times": ["09:20", "12:30", "16:00"],
+  "market_index": "KOSPI",
+  "manual_universe_csv": "data/krx_universe.csv",
+  "snapshots_csv": "data/krx_snapshots.csv",
+  "scores_csv": "data/krx_scores.csv",
+  "events_csv": "data/krx_events.csv",
+  "min_trading_value_krw": 5000000000,
+  "weights": {
+    "relative_strength": 0.3,
+    "trading_value": 0.2,
+    "etf_exposure": 0.2,
+    "growth_evidence": 0.2,
+    "risk": 0.1
+  }
+}
+
