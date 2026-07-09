@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from .config import load_config
-from .fetcher import fetch_krx_stock_snapshot, load_manual_universe
+from .fetcher import fetch_krx_stock_snapshot, fetch_quote_fallback_snapshot, load_manual_universe
 from .scoring import calculate_scores
 from .storage import append_csv_rows, write_csv_rows
 
@@ -40,9 +40,17 @@ def run_update(config_path: str = "stocks/krx_dashboard/config.json") -> list[di
         if not snapshots:
             raise RuntimeError("KRX returned no stock rows")
     except Exception as exc:
-        status = "fallback"
-        message = f"KRX download failed; using manual universe: {exc}"
-        snapshots = load_manual_universe(config)
+        krx_error = exc
+        try:
+            snapshots = fetch_quote_fallback_snapshot(config)
+            if not snapshots:
+                raise RuntimeError("quote fallback returned no rows")
+            status = "quote_fallback"
+            message = f"KRX download failed; using quote fallback for manual universe: {krx_error}"
+        except Exception as fallback_exc:
+            status = "fallback"
+            message = f"KRX and quote fallback failed; using manual universe: {krx_error}; {fallback_exc}"
+            snapshots = load_manual_universe(config)
 
     snapshot_rows = [
         {
