@@ -1,0 +1,7 @@
+ticker,name,market,sector,growth_score,etf_exposure_score,risk_note,thesis
+005930,삼성전자,KOSPI,반도체,70,60,,실적/수출 회복 여부 추적
+000660,SK하이닉스,KOSPI,반도체,75,55,,HBM 및 메모리 업황 추적
+035420,NAVER,KOSPI,인터넷,45,35,,이익률 개선 여부 추적
+207940,삼성바이오로직스,KOSPI,바이오,65,40,,수주와 공장 가동률 추적
+005380,현대차,KOSPI,자동차,60,45,,수출/환율/마진 추적
+
